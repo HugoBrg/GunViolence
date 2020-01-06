@@ -4,7 +4,7 @@
 #                                                                 ~~~COLLECTE~~~
 
 #Lecture du fichier
-mydata = read.csv(file = "C:/Users/hugob/Desktop/GunViolence/gun-violence-data_01-2013_03-2018.csv", header=TRUE,sep=",", fill=TRUE,na.strings=c("","NA"))
+mydata = read.csv(file = "/home/user/Téléchargements/gun-violence-data/gun-violence-data_01-2013_03-2018.csv", header=TRUE,sep=",", fill=TRUE,na.strings=c("","NA"))
 #head(mydata)
 
 
