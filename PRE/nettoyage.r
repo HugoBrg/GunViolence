@@ -6,7 +6,7 @@ filtrer_data <- function(data) {
   filteredData <- matrix(ncol = 4)                                                      #matrice de 4 colonnes
   colnames(filteredData) <- c("date", "nombre_morts", "nombre_blesses", "etat")         #noms des colonnes                         
   for (row in 1:nrow(data)) {                                                           #parcours les données originales
-    if (is.null(data[row, "date"]) |                                                    #?????pk
+    if (is.null(data[row, "date"]) |                                                    #si il manque une valeur on ignore cette ligne
         length(data[row, "date"]) == 0 |
         is.null(data[row, "n_killed"]) |
         length(data[row, "n_killed"]) == 0 |
@@ -14,7 +14,7 @@ filtrer_data <- function(data) {
         length(data[row, "n_injured"]) == 0 |
         is.null(data[row, "state"]) |
         length(data[row, "state"]) == 0) {
-      next                                                                              #saute l'iteration actuelle sans terminer la boucle
+      next                                                                              #alors saute l'iteration actuelle sans terminer la boucle
     }
     date <- data[row, "date"]                                                           #alors on remplie notre tableau avec les données
     nombre_morts <- data[row, "n_killed"]
@@ -32,14 +32,8 @@ filtrer_data <- function(data) {
     }, error = function(e) {
       print(e)
       return(NULL)
-    })
-
-    # dateAsDate <- as.Date(date, "%Y-%m-%d", "%Y/%m/%d", FALSE)                        #convertie le format de la date
-    # if (is.na(dateAsDate))                                                            #si pas de date
-    #   next                                                                            #saute l'iteration actuelle sans terminer la boucle
-    # c(substr(paste(dateAsDate, ""), 1, 4), nombre_morts, nombre_blesses, etat)        #on ne met rien
-    # aRow <- dateAsDate
-    
+    })  
+   
     rbind(filteredData, aRow, NULL) -> filteredData                                     #combine la matrice fileteredData et aRow                                 
   }
   return(filteredData)
@@ -104,7 +98,7 @@ hist(                                                                           
   liste_morts,
   breaks = 50 ,
   xlim = c(0, 5),
-  col = rgb(0.1, 0.8, 0.3, 0.5),
+  col = rgb(0.1,0.8,0.3,0.5),
   ylab = "Fréquence" ,
   xlab = "Valeurs liste des morts" ,
   main = "Distribution nombre de mort par balle"
@@ -113,7 +107,7 @@ hist(
   liste_blesses,
   breaks = 50 ,
   xlim = c(0, 5),
-  col = rgb(0.1, 0.8, 0.3, 0.5),
+  col = rgb(0.1,0.8,0.3,0.5),
   ylab = "Fréquence" ,
   xlab = "Valeurs liste des blessés" ,
   main = "Distribution nombre de blessés par balle"
