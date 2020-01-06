@@ -21,24 +21,24 @@ filtrer_data <- function(data) {
     nombre_blesses <- data[row, "n_injured"]
     etat <- data[row, "state"]
     
-    # aRow <- tryCatch({                                                                  
-    #   dateAsDate <- as.Date(date, "%Y-%m-%d", "%Y/%m/%d", FALSE)                        #convertie le format de la date
-    #   if (is.na(dateAsDate))                                                            #si pas de date
-    #     next                                                                            #saute l'iteration actuelle sans terminer la boucle
-    #   c(substr(paste(dateAsDate, ""), 1, 4), nombre_morts, nombre_blesses, etat)        #on ne met rien
-    # }, warning = function(w) {
-    #   print(w)
-    #   return(NULL)
-    # }, error = function(e) {
-    #   print(e)
-    #   return(NULL)
-    # })  
+    aRow <- tryCatch({
+      dateAsDate <- as.Date(date, "%Y-%m-%d", "%Y/%m/%d", FALSE)                        #convertie le format de la date
+      if (is.na(dateAsDate))                                                            #si pas de date
+        next                                                                            #saute l'iteration actuelle sans terminer la boucle
+      c(substr(paste(dateAsDate, ""), 1, 4), nombre_morts, nombre_blesses, etat)        #on ne met rien
+    }, warning = function(w) {
+      print(w)
+      return(NULL)
+    }, error = function(e) {
+      print(e)
+      return(NULL)
+    })
 
-    dateAsDate <- as.Date(date, "%Y-%m-%d", "%Y/%m/%d", FALSE)                        #convertie le format de la date
-    if (is.na(dateAsDate))                                                            #si pas de date
-      next                                                                            #saute l'iteration actuelle sans terminer la boucle
-    c(substr(paste(dateAsDate, ""), 1, 4), nombre_morts, nombre_blesses, etat)        #on ne met rien
-    aRow <- dateAsDate
+    # dateAsDate <- as.Date(date, "%Y-%m-%d", "%Y/%m/%d", FALSE)                        #convertie le format de la date
+    # if (is.na(dateAsDate))                                                            #si pas de date
+    #   next                                                                            #saute l'iteration actuelle sans terminer la boucle
+    # c(substr(paste(dateAsDate, ""), 1, 4), nombre_morts, nombre_blesses, etat)        #on ne met rien
+    # aRow <- dateAsDate
     
     rbind(filteredData, aRow, NULL) -> filteredData                                     #combine la matrice fileteredData et aRow                                 
   }
