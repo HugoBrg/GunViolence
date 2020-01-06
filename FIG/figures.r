@@ -1,6 +1,6 @@
 #Nombre de morts par etat
 
-nombre_mort_etat <- table(d$nombre_morts, d$etat) 
+nombre_mort_etat <- table(d$n_killed, d$state) 
 
 
 #table mort par années
@@ -13,31 +13,31 @@ fusillades_2016 <- table(dates_fusillades == "2016")
 fusillades_2017 <- table(dates_fusillades == "2017")
 fusillades_2018 <- table(dates_fusillades == "2018")
 
-morts_2013 <- table(d$nombre_morts, substr(d$date, 1, 4) == "2013")
-morts_2014 <- table(d$nombre_morts, substr(d$date, 1, 4) == "2014")
-morts_2015 <- table(d$nombre_morts, substr(d$date, 1, 4) == "2015")
-morts_2016 <- table(d$nombre_morts, substr(d$date, 1, 4) == "2016")
-morts_2017 <- table(d$nombre_morts, substr(d$date, 1, 4) == "2017")
-morts_2018 <- table(d$nombre_morts, substr(d$date, 1, 4) == "2018")
+morts_2013 <- table(d$n_killed, substr(d$date, 1, 4) == "2013")
+morts_2014 <- table(d$n_killed, substr(d$date, 1, 4) == "2014")
+morts_2015 <- table(d$n_killed, substr(d$date, 1, 4) == "2015")
+morts_2016 <- table(d$n_killed, substr(d$date, 1, 4) == "2016")
+morts_2017 <- table(d$n_killed, substr(d$date, 1, 4) == "2017")
+morts_2018 <- table(d$n_killed, substr(d$date, 1, 4) == "2018")
 
-blesses_2013 <- table(d$nombre_blesses, substr(d$date, 1, 4) == "2013")
-blesses_2014 <- table(d$nombre_blesses, substr(d$date, 1, 4) == "2014")
-blesses_2015 <- table(d$nombre_blesses, substr(d$date, 1, 4) == "2015")
-blesses_2016 <- table(d$nombre_blesses, substr(d$date, 1, 4) == "2016")
-blesses_2017 <- table(d$nombre_blesses, substr(d$date, 1, 4) == "2017")
-blesses_2018 <- table(d$nombre_blesses, substr(d$date, 1, 4) == "2018")
+blesses_2013 <- table(d$n_injured, substr(d$date, 1, 4) == "2013")
+blesses_2014 <- table(d$n_injured, substr(d$date, 1, 4) == "2014")
+blesses_2015 <- table(d$n_injured, substr(d$date, 1, 4) == "2015")
+blesses_2016 <- table(d$n_injured, substr(d$date, 1, 4) == "2016")
+blesses_2017 <- table(d$n_injured, substr(d$date, 1, 4) == "2017")
+blesses_2018 <- table(d$n_injured, substr(d$date, 1, 4) == "2018")
 
 #Nombre de décés par années
 
-deces_2013 <- sum(d$nombre_morts[substr(d$date, 1, 4) == "2013"])
-deces_2014 <- sum(d$nombre_morts[substr(d$date, 1, 4) == "2014"])
-deces_2015 <- sum(d$nombre_morts[substr(d$date, 1, 4) == "2015"])
-deces_2016 <- sum(d$nombre_morts[substr(d$date, 1, 4) == "2016"])
-deces_2017 <- sum(d$nombre_morts[substr(d$date, 1, 4) == "2017"])
-deces_2018 <- sum(d$nombre_morts[substr(d$date, 1, 4) == "2018"])
+deces_2013 <- sum(d$n_killed[substr(d$date, 1, 4) == "2013"])
+deces_2014 <- sum(d$n_killed[substr(d$date, 1, 4) == "2014"])
+deces_2015 <- sum(d$n_killed[substr(d$date, 1, 4) == "2015"])
+deces_2016 <- sum(d$n_killed[substr(d$date, 1, 4) == "2016"])
+deces_2017 <- sum(d$n_killed[substr(d$date, 1, 4) == "2017"])
+deces_2018 <- sum(d$n_killed[substr(d$date, 1, 4) == "2018"])
 
 table_nombre_mort_ans <-
-  barplot(table(d$nombre_morts, substr(d$date, 1, 4))) # créer le graphique en barre
+  barplot(table(d$n_killed, substr(d$date, 1, 4))) # créer le graphique en barre
 
 vect_morts <-
   c(deces_2013,
@@ -53,12 +53,12 @@ barplot(vect_morts,
 
 #Nombre de bléssés
 
-nombre_blesses_2013 <- sum(d$nombre_blesses[substr(d$date, 1, 4) == "2013"])
-nombre_blesses_2014 <- sum(d$nombre_blesses[substr(d$date, 1, 4) == "2014"])
-nombre_blesses_2015 <- sum(d$nombre_blesses[substr(d$date, 1, 4) == "2015"])
-nombre_blesses_2016 <- sum(d$nombre_blesses[substr(d$date, 1, 4) == "2016"])
-nombre_blesses_2017 <- sum(d$nombre_blesses[substr(d$date, 1, 4) == "2017"])
-nombre_blesses_2018 <- sum(d$nombre_blesses[substr(d$date, 1, 4) == "2018"])
+nombre_blesses_2013 <- sum(d$n_injured[substr(d$date, 1, 4) == "2013"])
+nombre_blesses_2014 <- sum(d$n_injured[substr(d$date, 1, 4) == "2014"])
+nombre_blesses_2015 <- sum(d$n_injured[substr(d$date, 1, 4) == "2015"])
+nombre_blesses_2016 <- sum(d$n_injured[substr(d$date, 1, 4) == "2016"])
+nombre_blesses_2017 <- sum(d$n_injured[substr(d$date, 1, 4) == "2017"])
+nombre_blesses_2018 <- sum(d$n_injured[substr(d$date, 1, 4) == "2018"])
 
 vect_blesses <-
   c(nombre_blesses_2013,
@@ -88,18 +88,18 @@ barplot(vect_total,
 
 #Nombre de morts par mois, toute années confondue
 
-morts_01 <- sum(d$nombre_morts[substr(d$date, 6, 7) == "01"])
-morts_02 <- sum(d$nombre_morts[substr(d$date, 6, 7) == "02"])
-morts_03 <- sum(d$nombre_morts[substr(d$date, 6, 7) == "03"])
-morts_04 <- sum(d$nombre_morts[substr(d$date, 6, 7) == "04"])
-morts_05 <- sum(d$nombre_morts[substr(d$date, 6, 7) == "05"])
-morts_06 <- sum(d$nombre_morts[substr(d$date, 6, 7) == "06"])
-morts_07 <- sum(d$nombre_morts[substr(d$date, 6, 7) == "07"])
-morts_08 <- sum(d$nombre_morts[substr(d$date, 6, 7) == "08"])
-morts_09 <- sum(d$nombre_morts[substr(d$date, 6, 7) == "09"])
-morts_10 <- sum(d$nombre_morts[substr(d$date, 6, 7) == "10"])
-morts_11 <- sum(d$nombre_morts[substr(d$date, 6, 7) == "11"])
-morts_12 <- sum(d$nombre_morts[substr(d$date, 6, 7) == "12"])
+morts_01 <- sum(d$n_killed[substr(d$date, 6, 7) == "01"])
+morts_02 <- sum(d$n_killed[substr(d$date, 6, 7) == "02"])
+morts_03 <- sum(d$n_killed[substr(d$date, 6, 7) == "03"])
+morts_04 <- sum(d$n_killed[substr(d$date, 6, 7) == "04"])
+morts_05 <- sum(d$n_killed[substr(d$date, 6, 7) == "05"])
+morts_06 <- sum(d$n_killed[substr(d$date, 6, 7) == "06"])
+morts_07 <- sum(d$n_killed[substr(d$date, 6, 7) == "07"])
+morts_08 <- sum(d$n_killed[substr(d$date, 6, 7) == "08"])
+morts_09 <- sum(d$n_killed[substr(d$date, 6, 7) == "09"])
+morts_10 <- sum(d$n_killed[substr(d$date, 6, 7) == "10"])
+morts_11 <- sum(d$n_killed[substr(d$date, 6, 7) == "11"])
+morts_12 <- sum(d$n_killed[substr(d$date, 6, 7) == "12"])
 
 vect_morts_par_mois <-
   c(
@@ -137,18 +137,18 @@ barplot(
 
 #Nombre de bléssés par mois
 
-nombre_blesses_01 <- sum(d$nombre_blesses[substr(d$date, 6, 7) == "01"])
-nombre_blesses_02 <- sum(d$nombre_blesses[substr(d$date, 6, 7) == "02"])
-nombre_blesses_03 <- sum(d$nombre_blesses[substr(d$date, 6, 7) == "03"])
-nombre_blesses_04 <- sum(d$nombre_blesses[substr(d$date, 6, 7) == "04"])
-nombre_blesses_05 <- sum(d$nombre_blesses[substr(d$date, 6, 7) == "05"])
-nombre_blesses_06 <- sum(d$nombre_blesses[substr(d$date, 6, 7) == "06"])
-nombre_blesses_07 <- sum(d$nombre_blesses[substr(d$date, 6, 7) == "07"])
-nombre_blesses_08 <- sum(d$nombre_blesses[substr(d$date, 6, 7) == "08"])
-nombre_blesses_09 <- sum(d$nombre_blesses[substr(d$date, 6, 7) == "09"])
-nombre_blesses_10 <- sum(d$nombre_blesses[substr(d$date, 6, 7) == "10"])
-nombre_blesses_11 <- sum(d$nombre_blesses[substr(d$date, 6, 7) == "11"])
-nombre_blesses_12 <- sum(d$nombre_blesses[substr(d$date, 6, 7) == "12"])
+nombre_blesses_01 <- sum(d$n_injured[substr(d$date, 6, 7) == "01"])
+nombre_blesses_02 <- sum(d$n_injured[substr(d$date, 6, 7) == "02"])
+nombre_blesses_03 <- sum(d$n_injured[substr(d$date, 6, 7) == "03"])
+nombre_blesses_04 <- sum(d$n_injured[substr(d$date, 6, 7) == "04"])
+nombre_blesses_05 <- sum(d$n_injured[substr(d$date, 6, 7) == "05"])
+nombre_blesses_06 <- sum(d$n_injured[substr(d$date, 6, 7) == "06"])
+nombre_blesses_07 <- sum(d$n_injured[substr(d$date, 6, 7) == "07"])
+nombre_blesses_08 <- sum(d$n_injured[substr(d$date, 6, 7) == "08"])
+nombre_blesses_09 <- sum(d$n_injured[substr(d$date, 6, 7) == "09"])
+nombre_blesses_10 <- sum(d$n_injured[substr(d$date, 6, 7) == "10"])
+nombre_blesses_11 <- sum(d$n_injured[substr(d$date, 6, 7) == "11"])
+nombre_blesses_12 <- sum(d$n_injured[substr(d$date, 6, 7) == "12"])
 
 vect_blesses_par_mois <-
   c(
@@ -238,9 +238,9 @@ sum(deces_2013 + deces_2014 + deces_2015 + deces_2016 + deces_2017 + deces_2018)
 
 
 #Total de bléssés
-sum(d$nombre_morts)
-sum(d$nombre_blesses)
-sum(d$nombre_blesses + d$nombre_morts)
+sum(d$n_killed)
+sum(d$n_injured)
+sum(d$n_injured + d$n_killed)
 
 
 #Analyse de l'année 2017 car c'est l'année ou il y a le plus de crime
@@ -248,18 +248,18 @@ sum(d$nombre_blesses + d$nombre_morts)
 
 #Nombre de morts par mois en 2017
 
-morts_01_2017 <- sum(d$nombre_morts[substr(d$date, 1, 7) == "2017-01"])
-morts_02_2017 <- sum(d$nombre_morts[substr(d$date, 1, 7) == "2017-02"])
-morts_03_2017 <- sum(d$nombre_morts[substr(d$date, 1, 7) == "2017-03"])
-morts_04_2017 <- sum(d$nombre_morts[substr(d$date, 1, 7) == "2017-04"])
-morts_05_2017 <- sum(d$nombre_morts[substr(d$date, 1, 7) == "2017-05"])
-morts_06_2017 <- sum(d$nombre_morts[substr(d$date, 1, 7) == "2017-06"])
-morts_07_2017 <- sum(d$nombre_morts[substr(d$date, 1, 7) == "2017-07"])
-morts_08_2017 <- sum(d$nombre_morts[substr(d$date, 1, 7) == "2017-08"])
-morts_09_2017 <- sum(d$nombre_morts[substr(d$date, 1, 7) == "2017-09"])
-morts_10_2017 <- sum(d$nombre_morts[substr(d$date, 1, 7) == "2017-10"])
-morts_11_2017 <- sum(d$nombre_morts[substr(d$date, 1, 7) == "2017-11"])
-morts_12_2017 <- sum(d$nombre_morts[substr(d$date, 1, 7) == "2017-12"])
+morts_01_2017 <- sum(d$n_killed[substr(d$date, 1, 7) == "2017-01"])
+morts_02_2017 <- sum(d$n_killed[substr(d$date, 1, 7) == "2017-02"])
+morts_03_2017 <- sum(d$n_killed[substr(d$date, 1, 7) == "2017-03"])
+morts_04_2017 <- sum(d$n_killed[substr(d$date, 1, 7) == "2017-04"])
+morts_05_2017 <- sum(d$n_killed[substr(d$date, 1, 7) == "2017-05"])
+morts_06_2017 <- sum(d$n_killed[substr(d$date, 1, 7) == "2017-06"])
+morts_07_2017 <- sum(d$n_killed[substr(d$date, 1, 7) == "2017-07"])
+morts_08_2017 <- sum(d$n_killed[substr(d$date, 1, 7) == "2017-08"])
+morts_09_2017 <- sum(d$n_killed[substr(d$date, 1, 7) == "2017-09"])
+morts_10_2017 <- sum(d$n_killed[substr(d$date, 1, 7) == "2017-10"])
+morts_11_2017 <- sum(d$n_killed[substr(d$date, 1, 7) == "2017-11"])
+morts_12_2017 <- sum(d$n_killed[substr(d$date, 1, 7) == "2017-12"])
 
 vect_morts_par_mois_en_2017 <-
   c(
@@ -297,18 +297,18 @@ barplot(
 
 #Nombre de bléssés par mois en 2017
 
-blesses_01_2017 <- sum(d$nombre_blesses[substr(d$date, 1, 7) == "2017-01"])
-blesses_02_2017 <- sum(d$nombre_blesses[substr(d$date, 1, 7) == "2017-02"])
-blesses_03_2017 <- sum(d$nombre_blesses[substr(d$date, 1, 7) == "2017-03"])
-blesses_04_2017 <- sum(d$nombre_blesses[substr(d$date, 1, 7) == "2017-04"])
-blesses_05_2017 <- sum(d$nombre_blesses[substr(d$date, 1, 7) == "2017-05"])
-blesses_06_2017 <- sum(d$nombre_blesses[substr(d$date, 1, 7) == "2017-06"])
-blesses_07_2017 <- sum(d$nombre_blesses[substr(d$date, 1, 7) == "2017-07"])
-blesses_08_2017 <- sum(d$nombre_blesses[substr(d$date, 1, 7) == "2017-08"])
-blesses_09_2017 <- sum(d$nombre_blesses[substr(d$date, 1, 7) == "2017-09"])
-blesses_10_2017 <- sum(d$nombre_blesses[substr(d$date, 1, 7) == "2017-10"])
-blesses_11_2017 <- sum(d$nombre_blesses[substr(d$date, 1, 7) == "2017-11"])
-blesses_12_2017 <- sum(d$nombre_blesses[substr(d$date, 1, 7) == "2017-12"])
+blesses_01_2017 <- sum(d$n_injured[substr(d$date, 1, 7) == "2017-01"])
+blesses_02_2017 <- sum(d$n_injured[substr(d$date, 1, 7) == "2017-02"])
+blesses_03_2017 <- sum(d$n_injured[substr(d$date, 1, 7) == "2017-03"])
+blesses_04_2017 <- sum(d$n_injured[substr(d$date, 1, 7) == "2017-04"])
+blesses_05_2017 <- sum(d$n_injured[substr(d$date, 1, 7) == "2017-05"])
+blesses_06_2017 <- sum(d$n_injured[substr(d$date, 1, 7) == "2017-06"])
+blesses_07_2017 <- sum(d$n_injured[substr(d$date, 1, 7) == "2017-07"])
+blesses_08_2017 <- sum(d$n_injured[substr(d$date, 1, 7) == "2017-08"])
+blesses_09_2017 <- sum(d$n_injured[substr(d$date, 1, 7) == "2017-09"])
+blesses_10_2017 <- sum(d$n_injured[substr(d$date, 1, 7) == "2017-10"])
+blesses_11_2017 <- sum(d$n_injured[substr(d$date, 1, 7) == "2017-11"])
+blesses_12_2017 <- sum(d$n_injured[substr(d$date, 1, 7) == "2017-12"])
 
 vect_blesses_par_mois_en_2017 <-
   c(
