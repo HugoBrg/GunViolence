@@ -98,7 +98,7 @@ hist(                                                                           
   liste_morts,
   breaks = 50 ,
   xlim = c(0, 5),
-  col = rgb(0.1,0.8,0.3,0.5),
+  col = rgb(0.8,0.8,0,0.8),
   ylab = "Fréquence" ,
   xlab = "Valeurs liste des morts" ,
   main = "Distribution nombre de mort par balle"
@@ -107,7 +107,7 @@ hist(
   liste_blesses,
   breaks = 50 ,
   xlim = c(0, 5),
-  col = rgb(0.1,0.8,0.3,0.5),
+  col = rgb(0.8,0.1,0.5,0.8),
   ylab = "Fréquence" ,
   xlab = "Valeurs liste des blessés" ,
   main = "Distribution nombre de blessés par balle"
