@@ -1,6 +1,6 @@
 #Nombre de morts par etat
 
-nombre_mort_etat <- table(d$n_killed, d$state) 
+nombre_mort_etat <- table(d$n_killed, d$state)
 
 
 #table mort par années
@@ -53,20 +53,28 @@ barplot(vect_morts,
 
 #Nombre de bléssés
 
-nombre_blesses_2013 <- sum(d$n_injured[substr(d$date, 1, 4) == "2013"])
-nombre_blesses_2014 <- sum(d$n_injured[substr(d$date, 1, 4) == "2014"])
-nombre_blesses_2015 <- sum(d$n_injured[substr(d$date, 1, 4) == "2015"])
-nombre_blesses_2016 <- sum(d$n_injured[substr(d$date, 1, 4) == "2016"])
-nombre_blesses_2017 <- sum(d$n_injured[substr(d$date, 1, 4) == "2017"])
-nombre_blesses_2018 <- sum(d$n_injured[substr(d$date, 1, 4) == "2018"])
+nombre_blesses_2013 <-
+  sum(d$n_injured[substr(d$date, 1, 4) == "2013"])
+nombre_blesses_2014 <-
+  sum(d$n_injured[substr(d$date, 1, 4) == "2014"])
+nombre_blesses_2015 <-
+  sum(d$n_injured[substr(d$date, 1, 4) == "2015"])
+nombre_blesses_2016 <-
+  sum(d$n_injured[substr(d$date, 1, 4) == "2016"])
+nombre_blesses_2017 <-
+  sum(d$n_injured[substr(d$date, 1, 4) == "2017"])
+nombre_blesses_2018 <-
+  sum(d$n_injured[substr(d$date, 1, 4) == "2018"])
 
 vect_blesses <-
-  c(nombre_blesses_2013,
+  c(
+    nombre_blesses_2013,
     nombre_blesses_2014,
     nombre_blesses_2015,
     nombre_blesses_2016,
     nombre_blesses_2017,
-    nombre_blesses_2018)
+    nombre_blesses_2018
+  )
 
 barplot(vect_blesses,
         names.arg = c("2013", "2014", "2015", "2016", "2017", "2018"))
@@ -297,18 +305,30 @@ barplot(
 
 #Nombre de bléssés par mois en 2017
 
-blesses_01_2017 <- sum(d$n_injured[substr(d$date, 1, 7) == "2017-01"])
-blesses_02_2017 <- sum(d$n_injured[substr(d$date, 1, 7) == "2017-02"])
-blesses_03_2017 <- sum(d$n_injured[substr(d$date, 1, 7) == "2017-03"])
-blesses_04_2017 <- sum(d$n_injured[substr(d$date, 1, 7) == "2017-04"])
-blesses_05_2017 <- sum(d$n_injured[substr(d$date, 1, 7) == "2017-05"])
-blesses_06_2017 <- sum(d$n_injured[substr(d$date, 1, 7) == "2017-06"])
-blesses_07_2017 <- sum(d$n_injured[substr(d$date, 1, 7) == "2017-07"])
-blesses_08_2017 <- sum(d$n_injured[substr(d$date, 1, 7) == "2017-08"])
-blesses_09_2017 <- sum(d$n_injured[substr(d$date, 1, 7) == "2017-09"])
-blesses_10_2017 <- sum(d$n_injured[substr(d$date, 1, 7) == "2017-10"])
-blesses_11_2017 <- sum(d$n_injured[substr(d$date, 1, 7) == "2017-11"])
-blesses_12_2017 <- sum(d$n_injured[substr(d$date, 1, 7) == "2017-12"])
+blesses_01_2017 <-
+  sum(d$n_injured[substr(d$date, 1, 7) == "2017-01"])
+blesses_02_2017 <-
+  sum(d$n_injured[substr(d$date, 1, 7) == "2017-02"])
+blesses_03_2017 <-
+  sum(d$n_injured[substr(d$date, 1, 7) == "2017-03"])
+blesses_04_2017 <-
+  sum(d$n_injured[substr(d$date, 1, 7) == "2017-04"])
+blesses_05_2017 <-
+  sum(d$n_injured[substr(d$date, 1, 7) == "2017-05"])
+blesses_06_2017 <-
+  sum(d$n_injured[substr(d$date, 1, 7) == "2017-06"])
+blesses_07_2017 <-
+  sum(d$n_injured[substr(d$date, 1, 7) == "2017-07"])
+blesses_08_2017 <-
+  sum(d$n_injured[substr(d$date, 1, 7) == "2017-08"])
+blesses_09_2017 <-
+  sum(d$n_injured[substr(d$date, 1, 7) == "2017-09"])
+blesses_10_2017 <-
+  sum(d$n_injured[substr(d$date, 1, 7) == "2017-10"])
+blesses_11_2017 <-
+  sum(d$n_injured[substr(d$date, 1, 7) == "2017-11"])
+blesses_12_2017 <-
+  sum(d$n_injured[substr(d$date, 1, 7) == "2017-12"])
 
 vect_blesses_par_mois_en_2017 <-
   c(
